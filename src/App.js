@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as dotenv from 'dotenv';
+dotenv.config()
+
+const mapquest_key = process.env.MAPQUEST_KEY;
+const mapquest_secret = process.env.MAPQUEST_SECRET;
+const darksky_key = process.env.DARKSKY_KEY;
+
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+  
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <input placeholder="city" onChange={(e) => {this.setState({ city: e.target.value })}}></input>
+        {this.state.city}
       </div>
     );
   }
